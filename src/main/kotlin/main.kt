@@ -15,9 +15,11 @@ fun main() {
         val lastByOneInt: Int = lastByOneChar.digitToInt()
         if (lastInt == 1 && lastByOneInt != 1) {
             return " минуту"
-        } else if (lastInt > 1 && lastInt < 5 && lastByOneInt != 1)
+        } else if (lastInt > 1 && lastInt < 5 && lastByOneInt != 1) {
             return " минуты"
-        else return " минут"
+        } else {
+            return " минут"
+        }
 
     }
 
@@ -29,7 +31,11 @@ fun main() {
         val lastByOneInt: Int = lastByOneChar.digitToInt()
         if (lastInt == 1 && lastByOneInt != 1) {
             return " час"
-        } else return " часов"
+        } else if (lastInt > 1 && lastInt < 5 && lastByOneInt != 1) {
+            return " часа"
+        } else {
+            return " часов"
+        }
 
     }
 }
