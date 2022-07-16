@@ -1,30 +1,37 @@
 fun main() {
 
-    val seconds: Int = 10000
+    val seconds: Int = 61
+ print(agoToText(seconds))
 
 
 }
 
 fun agoToText(time: Int): String {
-    when (time) {
+    return when (time) {
         in 0..60 -> "Только что"
-        in 61..60 * 60 -> minutes(time/60)
+        in 61..60 * 60 -> minutes((time / 60).toInt())
+        else -> "hi"
     }
-    return "hi"
+
 }
 
 fun minutes(minutes: Int): String {
+    var lastByOneChar: Char
     val minutesToString: String = minutes.toString()
-    val lastChar: Char = minutesToString[minutesToString.length - 2]
-    val lastByOneChar: Char = minutesToString[minutesToString.length - 2]
+    val lastChar: Char = minutesToString[minutesToString.length - 1]
+    if (minutesToString.length > 2) {
+         lastByOneChar = minutesToString[minutesToString.length - 2]
+    }
+    else
+        lastByOneChar = '0'
     val lastInt: Int = lastChar.digitToInt()
     val lastByOneInt: Int = lastByOneChar.digitToInt()
     if (lastInt == 1 && lastByOneInt != 1) {
-        return " минуту"
+        return "$minutes минуту"
     } else if (lastInt in 2..4 && lastByOneInt != 1) {
-        return " минуты"
+        return "$minutes минуты"
     } else {
-        return " минут"
+        return "$minutes минут"
     }
 
 }
